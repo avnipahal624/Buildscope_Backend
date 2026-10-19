@@ -2,6 +2,21 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+app = FastAPI()
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://bulidscope-frontend.vercel.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 from app.api.routes import router
 from app.api.chain_routes import router as chain_router  
 from app.api.project_requirement_routes import router as project_req_router # <-- NEW LINE 1
