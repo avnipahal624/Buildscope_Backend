@@ -1,0 +1,55 @@
+{
+  "projects": {
+    "d701b033-35f8-4761-aaba-1d65468ea3d6": true,
+    "98935516-3412-4f4d-b1f9-17e4fd896a59": true,
+    "932132f9-e285-40e5-a3a9-f0538ac17425": true,
+    "a8b75900-7274-4891-be8d-61f9556de49b": true,
+    "6b329ed8-676c-445c-8b16-b9dbee7d5e33": true,
+    "a83c40a2-df58-4585-854f-558d23326345": true,
+    "2d881506-a5e7-4d2a-bbfe-fa76beeb5e1e": false,
+    "ee7ae189-55e7-4a0b-9b9b-6137d7a7b0da": true,
+    "d43c6892-771c-45ce-8630-f4c1ac7630b2": false
+  },
+  "evidence": {
+    "4fa2f9d2-266c-4f0f-9419-f01da6164997": {
+      "real": true,
+      "supports": true
+    },
+    "a068c5b6-a091-4665-8954-264b0e9f3e9c": {
+      "real": true,
+      "supports": true
+    },
+    "33476c1c-7a84-41ad-b22a-da32d180c2c4": {
+      "real": true,
+      "supports": true
+    },
+    "50e1784d-7440-4068-9929-9bb523b6420f": {
+      "real": true,
+      "supports": true
+    },
+    "ff108ddd-540f-4cec-ba0c-93d4daf3a496": {
+      "real": true,
+      "supports": false
+    },
+    "f52418a3-d885-4a0e-ba75-569a531bccb4": {
+      "real": true,
+      "supports": true
+    },
+    "2595a323-0a34-4fe4-86cc-01b0d3692783": {
+      "real": true,
+      "supports": true
+    },
+    "8d89701b-e438-48cf-a751-6a8e8dac193f": {
+      "real": true,
+      "supports": false
+    },
+    "585efe5e-f4fd-4c33-8c6e-3d19528bae3b": {
+      "real": true,
+      "supports": true
+    },
+    "3677dfea-3243-463f-b69c-b39f94cef946": {
+      "real": false,
+      "supports": false
+    }
+  }
+}

@@ -1,0 +1,854 @@
+{
+  "legend": {
+    "sourced_facts": "evidence[].excerpt and similar_projects[] fields extracted from pages",
+    "ai_interpretations": "needs[].ai_interpretation, comparisons[].explanation",
+    "hypotheses": "opportunities[] (status=hypothesis) and comparisons[].possible_gaps",
+    "note": "Evidence statuses describe evidence strength, not market proof."
+  },
+  "project": {
+    "id": "57abb460-ab4b-4dd5-8e77-e5dbd655293a",
+    "name": "AssignMate",
+    "description": "An AI application that helps students manage assignments.",
+    "problem_statement": "Students struggle to prioritise assignments across several subjects.",
+    "target_users": [
+      "students"
+    ],
+    "keywords": [
+      "assignment manager",
+      "student planner"
+    ],
+    "planned_features": [
+      "due date reminders",
+      "workload planning"
+    ],
+    "status": "draft",
+    "created_at": "2026-10-17T21:09:09.399327"
+  },
+  "research_scope": {
+    "stage": "done",
+    "search_hits": 48,
+    "selected": 12,
+    "cached": 0,
+    "fetched": 12,
+    "failed": 0,
+    "duplicates": 0,
+    "extracted": 9,
+    "queries_run": 5,
+    "failed_searches": 0,
+    "pages_fetched_or_cached": 12,
+    "projects_extracted": 9,
+    "coverage_note": "Search coverage is incomplete: private repositories, blocked pages and poorly indexed projects may be missed. Absence of a match is not evidence that an idea is original."
+  },
+  "similar_projects": [
+    {
+      "id": "d701b033-35f8-4761-aaba-1d65468ea3d6",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "da7dd9e4-8ef5-4ebd-acb3-9e8e590ca34a",
+      "name": "Voiset for Students",
+      "source_url": "https://www.voiset.io/for-students",
+      "description": "An AI study planner and assistant that helps students control their schedule, track project progress, and streamline their study routine.",
+      "problem_solved": "Helps students keep track of to-do lists, assignments, deadlines, and exam schedules to prevent burnout and avoid relying on notebooks or memory.",
+      "target_users": [
+        "students"
+      ],
+      "features": [
+        "Smart calendar syncing all calendars, to-dos & projects",
+        "Automatic schedule planning based on workload and deadlines",
+        "Smart reminders for plans, classes, and projects",
+        "AI notes and voice input to turn recordings into text outlines or checklists",
+        "ChatGPT plugin to create assignments, get explanations, and generate study plans",
+        "Focus timer (Pomodoro)"
+      ],
+      "technology": [
+        "AI",
+        "ChatGPT plugin"
+      ],
+      "limitations": [],
+      "supporting_excerpt": "Control your schedule, track project progress, and streamline your study routine with smart planner for better results and less stress.",
+      "excerpt_verified": true,
+      "similarity_score": 0.6966,
+      "score_components": {
+        "description": 0.8164,
+        "problem": 0.7215,
+        "users": 1.0,
+        "features": 0.1984
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "98935516-3412-4f4d-b1f9-17e4fd896a59",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "7a99a035-df0c-48e6-b930-84f510488725",
+      "name": "Trevor AI",
+      "source_url": "https://www.trevorai.com/use-cases/students",
+      "description": "A dynamic scheduling tool and AI-powered academic assistant that integrates with calendars to time-block tasks, set recurring assignments, and provide AI-driven scheduling suggestions.",
+      "problem_solved": "Helps students avoid missing deadlines, cramming last minute, and feeling overwhelmed by providing dynamic planning and real-time scheduling rather than static to-do lists.",
+      "target_users": [
+        "students",
+        "professionals"
+      ],
+      "features": [
+        "Integrates with Google Calendar, Microsoft Calendar, Google Tasks, and Todoist",
+        "Time-block tasks with start and end times",
+        "AI-driven scheduling suggestions and automated task durations",
+        "Recurring tasks and deadline reminders",
+        "Breaking down difficult tasks into 5 smaller steps",
+        "Timeline view to organize, prioritize, and visualize workload",
+        "Overdue tasks highlighted in red with smart rescheduling options",
+        "Share and attach files for group assignments",
+        "Deep work mode with a single click"
+      ],
+      "technology": [
+        "AI-driven scheduling",
+        "Google Calendar integration",
+        "Microsoft Calendar integration",
+        "Google Tasks integration",
+        "Todoist integration"
+      ],
+      "limitations": [
+        "Powerful scheduling features and AI automations require upgrading to a 'Pro' plan"
+      ],
+      "supporting_excerpt": "That\u2019s where Trevor AI steps in - it\u2019s not just another generic student planner app, but more like a personal academic assistant. It\u2019s a dynamic scheduling tool that integrates effortlessly with your calendar, allowing you to time-block tasks, set recurring assignments, and receive AI-driven scheduling",
+      "excerpt_verified": true,
+      "similarity_score": 0.6742,
+      "score_components": {
+        "description": 0.7859,
+        "problem": 0.7324,
+        "users": 1.0,
+        "features": 0.1339
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "ece61bce-0944-4fa7-97e3-b39388423146",
+      "name": "Notesight's AI Study Planner",
+      "source_url": "https://notesight.co/features/ai-study-planner",
+      "description": "An AI study planner that generates a personalized, flexible study schedule based on user goals, deadlines, and daily availability.",
+      "problem_solved": "Balancing school, activities, and test prep can feel overwhelming, leading to guesswork, burnout, and last-minute stress.",
+      "target_users": [
+        "students",
+        "busy students",
+        "students prepping for finals",
+        "students juggling AP classes",
+        "students getting ready for the SAT",
+        "students with learning differences who need structure and pacing support"
+      ],
+      "features": [
+        "Generate a personalized study schedule based on goals, deadlines, and daily availability",
+        "AI Scheduling (automatically maps out study sessions tailored to subjects and goals)",
+        "Time Blocking (fits around school, sports, and work schedule)",
+        "Priority Boosting (focuses on weak areas or high-value topics first)",
+        "Adaptive Updates (plans adjust as you fall behind or move ahead)",
+        "Integrated Tasks (syncs with flashcards, notes, and practice tests inside Notesight)",
+        "Built-in dynamic reminders and progress tracking",
+        "Flexible rescheduling",
+        "1-on-1 Tutoring add-on"
+      ],
+      "technology": [
+        "AI",
+        "iOS",
+        "Android"
+      ],
+      "limitations": [],
+      "supporting_excerpt": "Generate a personalized study schedule based on your goals, deadlines, and daily availability.",
+      "excerpt_verified": true,
+      "similarity_score": 0.656,
+      "score_components": {
+        "description": 0.7773,
+        "problem": 0.7305,
+        "users": 1.0,
+        "features": 0.0625
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "a8b75900-7274-4891-be8d-61f9556de49b",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "a3b8e14a-ebd5-4670-ae90-9ed0022fe22c",
+      "name": "StudyNova",
+      "source_url": "https://www.reddit.com/r/Productivitycafe/comments/1o5lgb4/i_built_an_aipowered_study_planner_to_help/",
+      "description": "A web app that helps students plan, track, and stay consistent with their study goals using AI, functioning like an AI study coach.",
+      "problem_solved": "Making studying feel less overwhelming and helping students stay consistent with their study goals.",
+      "target_users": [
+        "students"
+      ],
+      "features": [
+        "Plan, track, and stay consistent with study goals using AI",
+        "Log in and create study goals",
+        "Analyze progress",
+        "Suggest improvements over time"
+      ],
+      "technology": [
+        "AI",
+        "web app"
+      ],
+      "limitations": [
+        "early in development"
+      ],
+      "supporting_excerpt": "I\u2019ve been working on a project called StudyNova, a web app that helps students plan, track, and stay consistent with their study goals using AI.",
+      "excerpt_verified": true,
+      "similarity_score": 0.6406,
+      "score_components": {
+        "description": 0.7972,
+        "problem": 0.6867,
+        "users": 1.0,
+        "features": 0.0
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "6b329ed8-676c-445c-8b16-b9dbee7d5e33",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "d307b989-29fe-480b-bdde-95e83e2e7487",
+      "name": "StudyX",
+      "source_url": "https://play.google.com/store/apps/details?id=com.brilian.studyx.student&hl=en_US",
+      "description": "An AI homework helper and note app that solves homework questions step-by-step, summarizes notes from videos and documents, and provides 24/7 AI tutoring across multiple subjects.",
+      "problem_solved": "Struggling with homework and switching between multiple different study apps.",
+      "target_users": [
+        "students",
+        "school students",
+        "college students"
+      ],
+      "features": [
+        "Math Solver Scanner & Math AI",
+        "Picture AI & Homework Scanner",
+        "Lecture Summarizer & Video Note Taker",
+        "Scientific Calculator & Code Generator",
+        "Book Reader and AI Writing Assistant",
+        "Ask follow-up questions with personal AI tutor",
+        "85M+ question bank with expert-verified answers",
+        "Automatically save questions and notes, edit, and export as PDF or text"
+      ],
+      "technology": [
+        "GPT-4o",
+        "Claude 3.5",
+        "Gemini 2.0",
+        "StudyX Super AI"
+      ],
+      "limitations": [],
+      "supporting_excerpt": "Struggling with homework? Meet StudyX \u2014 your AI homework helper that solves any homework question instantly, summarizes notes, prepares for exams, and boosts your grades!",
+      "excerpt_verified": true,
+      "similarity_score": 0.6234,
+      "score_components": {
+        "description": 0.7245,
+        "problem": 0.7342,
+        "users": 1.0,
+        "features": 0.0
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "a83c40a2-df58-4585-854f-558d23326345",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "5d365753-4635-45a2-beeb-11ec01311dc7",
+      "name": "AI Study Planner",
+      "source_url": "https://www.kuse.ai/ai-tools/study-planner",
+      "description": "An AI-powered tool that creates personalized, balanced study schedules based on a user's courses, deadlines, difficulty levels, and available time to optimize retention and track progress.",
+      "problem_solved": "Students struggle with time management and the mental effort required to divide study time across multiple subjects, leading to procrastination, cramming, and anxiety.",
+      "target_users": [
+        "High school students",
+        "College and university students",
+        "Graduate students",
+        "Professional learners",
+        "Self-learners"
+      ],
+      "features": [
+        "Smart schedule generation",
+        "Priority-based planning",
+        "Built-in break optimization using the Pomodoro method",
+        "Multi-subject balancing",
+        "Flexible time blocks tailored to user availability",
+        "Export and share as PDF or calendar file",
+        "Adaptive spaced repetition scheduling",
+        "Exam countdown planning",
+        "Weekly progress tracking"
+      ],
+      "technology": [
+        "AI",
+        "Pomodoro method",
+        "Spaced repetition"
+      ],
+      "limitations": [],
+      "supporting_excerpt": "An AI study planner is an intelligent tool that creates personalized study schedules based on your courses, deadlines, and available time.",
+      "excerpt_verified": true,
+      "similarity_score": 0.6171,
+      "score_components": {
+        "description": 0.7744,
+        "problem": 0.8292,
+        "users": 0.5,
+        "features": 0.125
+      },
+      "extraction_confidence": "medium",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "2d881506-a5e7-4d2a-bbfe-fa76beeb5e1e",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "0af37588-9f20-4f22-adfd-c0db7592b075",
+      "name": "Study Planner",
+      "source_url": "https://www.canva.com/study-planner/",
+      "description": "An online student planner powered by Canva Code that enables users to generate customizable study schedules, habit trackers, and productivity tools using AI text prompts without coding.",
+      "problem_solved": "Helps users organize studies, track assignments and exam countdowns, and manage classroom or personal learning schedules without needing coding skills.",
+      "target_users": [
+        "students",
+        "teachers",
+        "other learners"
+      ],
+      "features": [
+        "Track assignments, exam countdowns, and calculate GPA",
+        "AI code generation via text prompts or voice commands",
+        "Direct edits and customization via chat commands",
+        "Embed study planners into Canva designs like Websites, Presentations, and Docs",
+        "Preview panel for refining creations",
+        "Multi-layered safeguards and privacy tools with Canva Shield"
+      ],
+      "technology": [
+        "Canva Code",
+        "AI code generator",
+        "Canva Sheets",
+        "Canva Shield"
+      ],
+      "limitations": [
+        "Enterprise and Education accounts (including K-16 students) have AI-powered tools disabled by default unless enabled by admins",
+        "Users cannot directly edit the generated code (customization is handled through chat commands)"
+      ],
+      "supporting_excerpt": "Track your studies with our student planner online, powered by Canva Code. Create your study schedules, habit trackers, and productivity tools\u2014all free and customizable.",
+      "excerpt_verified": true,
+      "similarity_score": 0.6044,
+      "score_components": {
+        "description": 0.7182,
+        "problem": 0.6684,
+        "users": 1.0,
+        "features": 0.0
+      },
+      "extraction_confidence": "medium",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "ee7ae189-55e7-4a0b-9b9b-6137d7a7b0da",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "6bbb4008-0200-4434-8060-7f51cfe407da",
+      "name": "Template.net's Free AI Study Plan Generator",
+      "source_url": "https://www.template.net/ai-study-plan-generator",
+      "description": "An AI-powered document generator that creates structured study plans with learning schedules, study milestones, revision strategies, and organized academic timelines from text or voice prompts.",
+      "problem_solved": "Transforms learning goals, course requirements, exam preparation objectives, and study schedules into organized, structured study planning documents within seconds.",
+      "target_users": [
+        "students",
+        "school students",
+        "college learners",
+        "educators",
+        "professionals",
+        "training programs",
+        "lifelong learners",
+        "tutors",
+        "mentors",
+        "parents"
+      ],
+      "features": [
+        "Text or voice-based study plan generation",
+        "Smart study schedule organization",
+        "Generate multiple study plan variations",
+        "Customize study schedules, milestones, revision frequency, and layout",
+        "AI-powered recommendations and suggestions",
+        "Multilingual support in 20+ languages",
+        "Save, reuse, and collaborate on study plans",
+        "Download in PDF, DOCX, Google Docs, and more",
+        "Share via Email, LinkedIn, X (Twitter), Pinterest, WhatsApp, and Messenger",
+        "Secure cloud storage and controlled access"
+      ],
+      "technology": [
+        "AI",
+        "Cloud storage"
+      ],
+      "limitations": [],
+      "supporting_excerpt": "Template.net's Free AI Study Plan Generator helps transform learning goals, course requirements, exam preparation objectives, certification plans, and study schedules into structured study plan documents within seconds.",
+      "excerpt_verified": true,
+      "similarity_score": 0.6009,
+      "score_components": {
+        "description": 0.7233,
+        "problem": 0.6463,
+        "users": 1.0,
+        "features": 0.0
+      },
+      "extraction_confidence": "high",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    },
+    {
+      "id": "d43c6892-771c-45ce-8630-f4c1ac7630b2",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "source_id": "0f2a1aee-6309-42f5-b38f-6eef9eb277a0",
+      "name": "MyMap.AI Study Plan Maker",
+      "source_url": "https://www.mymap.ai/tools/study-plan-maker",
+      "description": "An AI-driven tool that creates visual study plans by breaking down topics, scheduling sessions, and establishing milestones to track learning progress according to study goals, timelines, and available time.",
+      "problem_solved": "Helps learners manage limited study time when several topics compete or deadlines are approaching by structuring sessions, practice, and review checkpoints.",
+      "target_users": [],
+      "features": [
+        "Builds visual study plans with broken-down topics, scheduled sessions, and progress milestones",
+        "Groups topics into sessions, prioritizes foundational material, and inserts review checkpoints",
+        "Separates learning new material from testing retention",
+        "Editable canvas to rebalance weeks, adjust session labels, or slow down difficult sections",
+        "Reschedules unfinished topics while keeping deadlines and review sessions visible",
+        "Export schedules as PNG or PDF",
+        "Generate slides from maps to present frame by frame"
+      ],
+      "technology": [
+        "AI"
+      ],
+      "limitations": [
+        "Does not book calendar events or send reminders",
+        "PDF export requires Pro"
+      ],
+      "supporting_excerpt": "Describe what you're studying, your timeline, and your goal and AI builds a visual study plan \u2014 topics broken down, sessions scheduled, and milestones to track progress.",
+      "excerpt_verified": true,
+      "similarity_score": 0.5636,
+      "score_components": {
+        "description": 0.7449,
+        "problem": 0.7246,
+        "users": null,
+        "features": 0.0
+      },
+      "extraction_confidence": "medium",
+      "collected_at": "2026-10-17T21:10:33.482176"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "5b912d65-6f7f-4bc4-a172-d35fed5e2528",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "similar_project_id": "d701b033-35f8-4761-aaba-1d65468ea3d6",
+      "shared_features": [
+        "Workload planning and scheduling",
+        "Reminders for deadlines and due dates"
+      ],
+      "differences": [
+        "Voiset features voice-to-text notes, a Pomodoro focus timer, and calendar syncing, none of which are documented for AssignMate.",
+        "Voiset utilizes a ChatGPT plugin for generating study plans and explanations, whereas AssignMate's specific AI mechanism is not documented.",
+        "AssignMate specifically targets cross-subject assignment prioritization, while Voiset addresses broader scheduling tasks including exams, classes, and general to-dos."
+      ],
+      "possible_gaps": [
+        "It may be worth testing whether students require a dedicated multi-subject prioritization algorithm rather than broad calendar scheduling.",
+        "It may be worth testing whether students prefer lightweight assignment tracking over an all-in-one assistant with voice notes and focus timers."
+      ],
+      "explanation": "Both AssignMate and Voiset for Students aim to help students stay on top of academic work using AI-assisted workload planning and reminders. Voiset is a broader productivity suite offering calendar syncing, voice transcription, and focus timers. AssignMate focuses more narrowly on helping students prioritize assignments across multiple subjects, though its technical implementation details are not yet documented.",
+      "supporting_source_ids": [
+        "da7dd9e4-8ef5-4ebd-acb3-9e8e590ca34a"
+      ]
+    },
+    {
+      "id": "8b586816-6e5a-4035-8c8e-fbcf046c968d",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "similar_project_id": "98935516-3412-4f4d-b1f9-17e4fd896a59",
+      "shared_features": [
+        "Due date and deadline reminders",
+        "Workload planning and assignment prioritization",
+        "AI-assisted assignment and task management"
+      ],
+      "differences": [
+        "Trevor AI targets both professionals and students, whereas AssignMate is documented specifically for students.",
+        "Trevor AI provides calendar integrations (Google, Microsoft), Todoist sync, time-blocking, and automatic step breakdown, which are not documented for AssignMate.",
+        "AssignMate focuses on multi-subject prioritization, whereas Trevor AI centers on calendar time-blocking and dynamic timeline scheduling."
+      ],
+      "possible_gaps": [
+        "It may be worth testing whether students prefer calendar-based time-blocking over subject-specific priority rankings.",
+        "It may be worth investigating whether integrating directly with school learning management systems (e.g., Canvas, Google Classroom) offers an advantage over standard calendar syncs.",
+        "It may be worth exploring whether automated task breakdown into sub-steps significantly improves completion rates compared to basic reminders."
+      ],
+      "explanation": "Both AssignMate and Trevor AI aim to help students stay on top of deadlines and manage their study workloads using artificial intelligence. Trevor AI is a broader scheduling tool that connects directly to third-party calendars and offers time-blocking and task-breakdown features for both students and professionals. AssignMate focuses directly on student assignment prioritization across multiple subjects, though its technical integrations and specific feature mechanics are not yet detailed.",
+      "supporting_source_ids": [
+        "7a99a035-df0c-48e6-b930-84f510488725"
+      ]
+    },
+    {
+      "id": "582a3360-a907-43ee-9c7c-09cc005e6e96",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+      "shared_features": [
+        "AI-driven workload and schedule planning for students",
+        "Reminders related to deadlines and tasks"
+      ],
+      "differences": [
+        "AssignMate focuses primarily on managing and prioritizing assignments across subjects, whereas Notesight addresses broader study planning including test prep, activities, and school balance.",
+        "Notesight documents platform availability on iOS and Android, while AssignMate's supported platforms are not documented.",
+        "Notesight includes integrated study tools such as flashcards, practice tests, adaptive updates, and a tutoring add-on, which are not documented for AssignMate."
+      ],
+      "possible_gaps": [
+        "It may be worth testing whether students prefer a focused assignment prioritization tool over a broader study platform that includes flashcards and tutoring.",
+        "It may be worth testing whether automated adaptive rescheduling is necessary for AssignMate when students fall behind on their planned workload."
+      ],
+      "explanation": "AssignMate and Notesight both aim to help students organize their academic commitments using AI-powered planning and reminder features. Notesight provides an extensive study suite featuring time blocking, test preparation, and integrated study tools. In contrast, AssignMate is positioned around assignment prioritization, though many of its platform and feature specifications are not yet documented.",
+      "supporting_source_ids": [
+        "ece61bce-0944-4fa7-97e3-b39388423146"
+      ]
+    },
+    {
+      "id": "bf775663-f00c-4edd-b8fb-8c09ec6d5e44",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "similar_project_id": "a8b75900-7274-4891-be8d-61f9556de49b",
+      "shared_features": [
+        "Use of AI to assist students with planning and academic management",
+        "Targeting students as the primary end users"
+      ],
+      "differences": [
+        "AssignMate plans specific features for due date reminders and workload planning, which are not documented for StudyNova",
+        "StudyNova documents progress analysis and AI suggestions over time, which are not documented for AssignMate",
+        "AssignMate focuses on prioritizing assignments across multiple subjects, while StudyNova focuses on consistency with study goals",
+        "StudyNova is documented as a web app, whereas AssignMate's deployment platform is not documented"
+      ],
+      "possible_gaps": [
+        "It may be worth testing whether students prioritize deadline-driven assignment management over ongoing study goal coaching",
+        "It may be worth testing whether automated workload planning across subjects offers distinct value beyond general progress tracking"
+      ],
+      "explanation": "Both AssignMate and StudyNova use AI to support students with academic organization. AssignMate focuses on workload planning and managing assignment due dates across various subjects, whereas StudyNova acts more like a study coach centered on tracking consistency and study goals. Specific functionality like due date notifications is planned for AssignMate but is not documented for StudyNova.",
+      "supporting_source_ids": [
+        "a3b8e14a-ebd5-4670-ae90-9ed0022fe22c"
+      ]
+    },
+    {
+      "id": "79221337-a69b-4ecb-b33e-b96578c0505e",
+      "run_id": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+      "similar_project_id": "6b329ed8-676c-445c-8b16-b9dbee7d5e33",
+      "shared_features": [
+        "Targeting students as primary end users",
+        "Assisting with academic management and multi-subject coursework"
+      ],
+      "differences": [
+        "AssignMate focuses on task management, prioritization, due date reminders, and workload planning, whereas StudyX is not documented to have workload planning or reminder tools.",
+        "StudyX focuses on problem-solving, scanning homework, math solving, summarization, and AI tutoring, none of which are documented for AssignMate."
+      ],
+      "possible_gaps": [
+        "It may be worth testing whether students prefer dedicated workload planning or an all-in-one tool that directly assists in solving homework tasks.",
+        "It may be worth investigating whether integrating AI tutoring or homework-solving features into AssignMate would complement its prioritization workflows."
+      ],
+      "explanation": "AssignMate focuses on task prioritization, scheduling, and workload management to help students stay on top of deadlines. In contrast, StudyX acts primarily as an AI tutor, scanner, and homework solver, focusing on content assistance rather than calendar or assignment tracking. While both serve students, they address fundamentally different problems within the academic routine.",
+      "supporting_source_ids": [
+        "d307b989-29fe-480b-bdde-95e83e2e7487"
+      ]
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "4f046698-b597-4756-93d2-28866f7175d7",
+      "project_id": "57abb460-ab4b-4dd5-8e77-e5dbd655293a",
+      "name": "Students",
+      "description": "They experience academic stress and poor performance due to difficulties balancing and prioritizing deadlines across multiple courses.",
+      "status": "suggested",
+      "created_by": "ai"
+    },
+    {
+      "id": "586fcea2-53f2-4aa0-a1eb-b8449bb669e1",
+      "project_id": "57abb460-ab4b-4dd5-8e77-e5dbd655293a",
+      "name": "Educators and Instructors",
+      "description": "They frequently deal with late submissions, extension requests, and lower quality work caused by students' poor workload planning.",
+      "status": "suggested",
+      "created_by": "ai"
+    },
+    {
+      "id": "156c648f-9b8c-4620-ab6a-9a5c5260a84b",
+      "project_id": "57abb460-ab4b-4dd5-8e77-e5dbd655293a",
+      "name": "Parents and Guardians",
+      "description": "They often bear the emotional and logistical burden of supporting and monitoring their children through assignment-related stress.",
+      "status": "suggested",
+      "created_by": "ai"
+    },
+    {
+      "id": "8cde3ebd-e180-4b2b-ae69-67dd6ba4021a",
+      "project_id": "57abb460-ab4b-4dd5-8e77-e5dbd655293a",
+      "name": "Educational Institutions",
+      "description": "They face lower overall student academic success and retention rates, along with increased demand on academic support services.",
+      "status": "suggested",
+      "created_by": "ai"
+    }
+  ],
+  "needs": [
+    {
+      "id": "2de9040f-7432-401f-a6c8-223271817b08",
+      "stakeholder_id": "4f046698-b597-4756-93d2-28866f7175d7",
+      "need_text": "Students struggle to mentally track assignments and daily activities without tools.",
+      "need_type": "explicit",
+      "evidence_status": "supported",
+      "supporting_count": 3,
+      "contradicting_count": 0,
+      "independent_source_count": 1,
+      "ai_interpretation": null,
+      "missing_information": [],
+      "validation_question": null,
+      "stakeholder": "Students",
+      "linked_solutions": [
+        {
+          "similar_project_id": "2d881506-a5e7-4d2a-bbfe-fa76beeb5e1e",
+          "relation": "related_feature",
+          "text": "Track assignments, exam countdowns, and calculate GPA",
+          "similarity": 0.7256
+        },
+        {
+          "similar_project_id": "d701b033-35f8-4761-aaba-1d65468ea3d6",
+          "relation": "related_feature",
+          "text": "ChatGPT plugin to create assignments, get explanations, and generate study plans",
+          "similarity": 0.6532
+        },
+        {
+          "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+          "relation": "related_feature",
+          "text": "AI Scheduling (automatically maps out study sessions tailored to subjects and goals)",
+          "similarity": 0.6521
+        },
+        {
+          "similar_project_id": "a8b75900-7274-4891-be8d-61f9556de49b",
+          "relation": "related_feature",
+          "text": "Plan, track, and stay consistent with study goals using AI",
+          "similarity": 0.6494
+        },
+        {
+          "similar_project_id": "d43c6892-771c-45ce-8630-f4c1ac7630b2",
+          "relation": "related_feature",
+          "text": "Builds visual study plans with broken-down topics, scheduled sessions, and progress milestones",
+          "similarity": 0.6487
+        }
+      ]
+    },
+    {
+      "id": "c57fab4f-51f8-4f67-b88e-c307e01bfe08",
+      "stakeholder_id": "586fcea2-53f2-4aa0-a1eb-b8449bb669e1",
+      "need_text": "Educators spend considerable time chasing down missing student work.",
+      "need_type": "explicit",
+      "evidence_status": "supported",
+      "supporting_count": 1,
+      "contradicting_count": 0,
+      "independent_source_count": 1,
+      "ai_interpretation": null,
+      "missing_information": [],
+      "validation_question": null,
+      "stakeholder": "Educators and Instructors",
+      "linked_solutions": [
+        {
+          "similar_project_id": "2d881506-a5e7-4d2a-bbfe-fa76beeb5e1e",
+          "relation": "related_feature",
+          "text": "Track assignments, exam countdowns, and calculate GPA",
+          "similarity": 0.6073
+        },
+        {
+          "similar_project_id": "98935516-3412-4f4d-b1f9-17e4fd896a59",
+          "relation": "related_feature",
+          "text": "Share and attach files for group assignments",
+          "similarity": 0.607
+        },
+        {
+          "similar_project_id": "6b329ed8-676c-445c-8b16-b9dbee7d5e33",
+          "relation": "related_feature",
+          "text": "Picture AI & Homework Scanner",
+          "similarity": 0.5999
+        },
+        {
+          "similar_project_id": "d43c6892-771c-45ce-8630-f4c1ac7630b2",
+          "relation": "related_feature",
+          "text": "Reschedules unfinished topics while keeping deadlines and review sessions visible",
+          "similarity": 0.5961
+        },
+        {
+          "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+          "relation": "related_feature",
+          "text": "Time Blocking (fits around school, sports, and work schedule)",
+          "similarity": 0.5893
+        }
+      ]
+    },
+    {
+      "id": "3d9670a4-0d73-4f72-9a19-b3f3a50cd585",
+      "stakeholder_id": "4f046698-b597-4756-93d2-28866f7175d7",
+      "need_text": "Neurodiverse students require greater executive function support and frequent prompting to manage tasks.",
+      "need_type": "explicit",
+      "evidence_status": "supported",
+      "supporting_count": 1,
+      "contradicting_count": 0,
+      "independent_source_count": 1,
+      "ai_interpretation": null,
+      "missing_information": [],
+      "validation_question": null,
+      "stakeholder": "Students",
+      "linked_solutions": [
+        {
+          "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+          "relation": "related_feature",
+          "text": "AI Scheduling (automatically maps out study sessions tailored to subjects and goals)",
+          "similarity": 0.6302
+        },
+        {
+          "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+          "relation": "related_feature",
+          "text": "Built-in dynamic reminders and progress tracking",
+          "similarity": 0.6294
+        },
+        {
+          "similar_project_id": "ee7ae189-55e7-4a0b-9b9b-6137d7a7b0da",
+          "relation": "related_feature",
+          "text": "Text or voice-based study plan generation",
+          "similarity": 0.6256
+        },
+        {
+          "similar_project_id": "d701b033-35f8-4761-aaba-1d65468ea3d6",
+          "relation": "related_feature",
+          "text": "Smart reminders for plans, classes, and projects",
+          "similarity": 0.6251
+        },
+        {
+          "similar_project_id": "932132f9-e285-40e5-a3a9-f0538ac17425",
+          "relation": "related_feature",
+          "text": "Generate a personalized study schedule based on goals, deadlines, and daily availability",
+          "similarity": 0.6222
+        }
+      ]
+    }
+  ],
+  "stakeholder_scope": {
+    "stage": "done",
+    "groups": [
+      "Students",
+      "Educators and Instructors",
+      "Parents and Guardians",
+      "Educational Institutions"
+    ],
+    "search_hits": 97,
+    "selected": 12,
+    "cached": 1,
+    "fetched": 11,
+    "failed": 0,
+    "duplicates": 0,
+    "verified_statements": 5,
+    "needs": 3,
+    "needs_found": 3,
+    "links_created": 15,
+    "opportunities_created": 0,
+    "linked_research_run": "1f55fdeb-8826-433a-ae6b-48f1b5617720",
+    "coverage_note": "A handful of online statements cannot show how common a need is. Statuses describe evidence strength, not market proof."
+  },
+  "opportunities": [
+    {
+      "id": "be1b3dbd-ec03-4bd3-ab84-b6d475eadf70",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students require a dedicated multi-subject prioritization algorithm rather than broad calendar scheduling.",
+      "rationale": "Suggested while comparing with Voiset for Students. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "d701b033-35f8-4761-aaba-1d65468ea3d6"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "687c6d30-9df9-4c29-9450-7aea592af612",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students prefer lightweight assignment tracking over an all-in-one assistant with voice notes and focus timers.",
+      "rationale": "Suggested while comparing with Voiset for Students. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "d701b033-35f8-4761-aaba-1d65468ea3d6"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "043969c2-9a0b-4401-8dce-d98ece838330",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students prefer calendar-based time-blocking over subject-specific priority rankings.",
+      "rationale": "Suggested while comparing with Trevor AI. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "98935516-3412-4f4d-b1f9-17e4fd896a59"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "84f496a1-3a2e-4cc2-ae04-d36713e78c00",
+      "origin": "research_gap",
+      "description": "It may be worth investigating whether integrating directly with school learning management systems (e.g., Canvas, Google Classroom) offers an advantage over standard calendar syncs.",
+      "rationale": "Suggested while comparing with Trevor AI. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "98935516-3412-4f4d-b1f9-17e4fd896a59"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "fd2beac6-832e-40b5-bbdf-6d65445a96c3",
+      "origin": "research_gap",
+      "description": "It may be worth exploring whether automated task breakdown into sub-steps significantly improves completion rates compared to basic reminders.",
+      "rationale": "Suggested while comparing with Trevor AI. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "98935516-3412-4f4d-b1f9-17e4fd896a59"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "7c1d8e44-b5a0-4f8b-bf05-94d74dd2bc63",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students prefer a focused assignment prioritization tool over a broader study platform that includes flashcards and tutoring.",
+      "rationale": "Suggested while comparing with Notesight's AI Study Planner. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "932132f9-e285-40e5-a3a9-f0538ac17425"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "e43a1d83-a8c8-44e1-9f03-78f9e7e063d9",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether automated adaptive rescheduling is necessary for AssignMate when students fall behind on their planned workload.",
+      "rationale": "Suggested while comparing with Notesight's AI Study Planner. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "932132f9-e285-40e5-a3a9-f0538ac17425"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "28b5bb5d-11dc-40c4-bec3-d8c9cad6f791",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students prioritize deadline-driven assignment management over ongoing study goal coaching",
+      "rationale": "Suggested while comparing with StudyNova. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "a8b75900-7274-4891-be8d-61f9556de49b"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "bb58885c-5fa6-47ae-a8ae-cfb4294756cf",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether automated workload planning across subjects offers distinct value beyond general progress tracking",
+      "rationale": "Suggested while comparing with StudyNova. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "a8b75900-7274-4891-be8d-61f9556de49b"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "523fc574-2d05-43c4-b71b-973bde5cb588",
+      "origin": "research_gap",
+      "description": "It may be worth testing whether students prefer dedicated workload planning or an all-in-one tool that directly assists in solving homework tasks.",
+      "rationale": "Suggested while comparing with StudyX. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "6b329ed8-676c-445c-8b16-b9dbee7d5e33"
+      ],
+      "status": "hypothesis"
+    },
+    {
+      "id": "ba1fec67-21ad-4cc6-80c2-a48cca9fad47",
+      "origin": "research_gap",
+      "description": "It may be worth investigating whether integrating AI tutoring or homework-solving features into AssignMate would complement its prioritization workflows.",
+      "rationale": "Suggested while comparing with StudyX. Hypothesis only: a feature not being documented does not prove an unmet need.",
+      "linked_need_ids": [],
+      "linked_project_ids": [
+        "6b329ed8-676c-445c-8b16-b9dbee7d5e33"
+      ],
+      "status": "hypothesis"
+    }
+  ]
+}
