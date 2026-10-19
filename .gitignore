@@ -4,3 +4,14 @@ __pycache__/
 *.pyc
 .pytest_cache/
 *.db
+pyvenv.cfg
+labels_before.json
+report.json
+review_needs.csv
+review_projects.csv
+scripts/Activate.ps1
+scripts/activate
+scripts/activate.bat
+scripts/activate.fish
+scripts/deactivate.bat
+scripts/*.exe
