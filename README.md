@@ -10,6 +10,13 @@ BuildScope AI helps teams investigate an early-stage product idea before committ
 - **Backend:** [Buildscope_Backend](https://github.com/avnipahal624/Buildscope_Backend)
 - **API documentation (local):** `http://localhost:8000/docs`
 
+## Product Demo
+
+Watch the [BuildScope AI walkthrough video on Google Drive](https://drive.google.com/file/d/128Fw6qudJEo3YPyIPSDlP2f4tMnScx_v/view?usp=sharing) to see the product experience.
+
+> **Hackathon note:** The video demonstrates the product workflow. Live provider behaviour and research results should be evaluated separately using the documented integration checks.
+
+
 ## Why this backend exists
 
 An idea description alone is not enough to decide whether something is worth building. The backend turns an idea into a more structured investigation:
