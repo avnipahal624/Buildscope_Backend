@@ -10,6 +10,7 @@ from app.models import (Evidence, Opportunity, Project, ProjectComparison, Resea
 from app.stakeholders.identify import identify_stakeholders
 from app.stakeholders.pipeline import latest_run_id
 from app import deps
+from app.research.adapter import AdapterError
 
 router = APIRouter(prefix="/api")
 
@@ -28,6 +29,39 @@ def _start(db: Session, tasks: BackgroundTasks, project_id: str, kind: str) -> s
     db.commit()
     tasks.add_task(execute_run, run.id)
     return schemas.JobCreated(job_id=run.id, status="pending")
+
+
+@router.get("/hackathons/search", tags=["hackathons"])
+def search_hackathons(
+    query: str = Query(min_length=2, max_length=140),
+    limit: int = Query(default=12, ge=1, le=25),
+):
+    """Search the live web for hackathon listings. Search hits are leads, not verified opportunities."""
+    clean_query = " ".join(query.split())
+    search_query = f"{clean_query} upcoming hackathon registration student competition"
+    try:
+        hits = deps.get_adapter().search(search_query)
+    except AdapterError as exc:
+        raise HTTPException(status_code=502, detail=f"Live hackathon search failed: {exc}") from exc
+
+    results = []
+    seen = set()
+    for hit in hits:
+        url = (hit.url or "").strip()
+        if not url.startswith(("https://", "http://")) or url in seen:
+            continue
+        seen.add(url)
+        results.append({
+            "id": f"live_{len(results) + 1}",
+            "name": hit.title or url,
+            "url": url,
+            "snippet": hit.snippet or "",
+            "verification": "unverified",
+            "source": "TinyFish live web search",
+        })
+        if len(results) >= limit:
+            break
+    return {"query": clean_query, "results": results, "note": "Search results are leads. Confirm dates, eligibility, fees, and registration on the organizer's official page."}
 
 
 # ----------------------------------------------------------- Module 1 stub: projects
