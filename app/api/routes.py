@@ -1,5 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from app import schemas
 from app.db import get_db
@@ -38,7 +40,12 @@ def search_hackathons(
 ):
     """Search the live web for hackathon listings. Search hits are leads, not verified opportunities."""
     clean_query = " ".join(query.split())
-    search_query = f"{clean_query} upcoming hackathon registration student competition"
+    today = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%B %d, %Y")
+    search_query = (
+        f"{clean_query} hackathon currently accepting registrations as of {today}; "
+        "upcoming events only, registration deadline not passed; exclude expired, completed, "
+        "cancelled, and past hackathons"
+    )
     try:
         hits = deps.get_adapter().search(search_query)
     except AdapterError as exc:
@@ -61,7 +68,12 @@ def search_hackathons(
         })
         if len(results) >= limit:
             break
-    return {"query": clean_query, "results": results, "note": "Search results are leads. Confirm dates, eligibility, fees, and registration on the organizer's official page."}
+    return {
+        "query": clean_query,
+        "searched_at": datetime.now(ZoneInfo("Asia/Kolkata")).isoformat(),
+        "results": results,
+        "note": "Search prioritizes currently open and upcoming events. Listings may still be stale; confirm the deadline and status on the organizer's page.",
+    }
 
 
 # ----------------------------------------------------------- Module 1 stub: projects
