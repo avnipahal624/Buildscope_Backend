@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     database_url: str = "postgresql+psycopg://buildscope:buildscope@localhost:5432/buildscope"
+    buildscope_auth_secret: str = ""
 
     # TinyFish
     tinyfish_api_key: str = ""
