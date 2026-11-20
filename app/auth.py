@@ -4,7 +4,11 @@ from sqlalchemy.orm import Session
 from app.db import get_db
 from app.models import User
 
-SECRET = os.getenv("BUILDSCOPE_AUTH_SECRET", "change-me-in-production")
+def _secret() -> str:
+    value = os.getenv("BUILDSCOPE_AUTH_SECRET", "").strip()
+    if not value and not os.getenv("PYTEST_CURRENT_TEST"):
+        raise HTTPException(503, "Authentication is not configured on this server")
+    return value or "test-suite-secret"
 
 def _b64(value: bytes) -> str:
     return base64.urlsafe_b64encode(value).rstrip(b"=").decode()
@@ -24,7 +28,7 @@ def verify_password(password: str, encoded: str) -> bool:
 
 def issue_token(user: User) -> str:
     payload = _b64(json.dumps({"sub": user.id, "email": user.email, "exp": int(time.time()) + 60 * 60 * 24 * 7}, separators=(",", ":")).encode())
-    signature = _b64(hmac.new(SECRET.encode(), payload.encode(), hashlib.sha256).digest())
+    signature = _b64(hmac.new(_secret().encode(), payload.encode(), hashlib.sha256).digest())
     return payload + "." + signature
 
 def current_user(authorization: str | None = Header(default=None), db: Session = Depends(get_db)) -> User:
@@ -40,7 +44,7 @@ def current_user(authorization: str | None = Header(default=None), db: Session =
         raise HTTPException(401, "Authentication required")
     try:
         payload, signature = authorization[7:].split(".", 1)
-        expected = _b64(hmac.new(SECRET.encode(), payload.encode(), hashlib.sha256).digest())
+        expected = _b64(hmac.new(_secret().encode(), payload.encode(), hashlib.sha256).digest())
         claims = json.loads(base64.urlsafe_b64decode(payload + "=="))
         if not hmac.compare_digest(signature, expected) or claims.get("exp", 0) < time.time():
             raise ValueError
