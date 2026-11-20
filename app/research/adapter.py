@@ -54,6 +54,10 @@ class TinyFishAdapter:
         self.http = client or httpx.Client(timeout=170)
         self._sleep = time.sleep
 
+    @property
+    def configured(self) -> bool:
+        return bool(self.s.tinyfish_api_key)
+
     def _request(self, method: str, url: str, **kwargs) -> dict:
         if not self.s.tinyfish_api_key:
             raise AdapterError("TINYFISH_API_KEY is not configured")
