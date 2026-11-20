@@ -42,6 +42,7 @@ app.add_middleware(
     allow_origins=[
         "https://bulidscope-frontend.vercel.app",
         "https://buildscope-frontend.vercel.app",
+        "https://bulidscope-frontend-ldtg6pwyh-avni16.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
