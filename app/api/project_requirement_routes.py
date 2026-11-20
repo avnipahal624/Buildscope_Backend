@@ -5,8 +5,9 @@ from sqlalchemy import select
 
 from app import db as database
 from app.models import Project, ProjectRequirement
+from app.auth import current_user
 
-router = APIRouter(tags=["project-requirements"])
+router = APIRouter(tags=["project-requirements"], dependencies=[Depends(current_user)])
 
 
 def _session():
