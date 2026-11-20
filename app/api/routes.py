@@ -130,6 +130,18 @@ def research_runs(project_id: str, db: Session = Depends(get_db)):
     return (db.query(ResearchRun).filter_by(project_id=project_id)
             .order_by(ResearchRun.created_at.desc()).all())
 
+@router.get("/research/provider-status", tags=["research"])
+def research_provider_status():
+    """Expose safe provider readiness without returning credentials."""
+    adapter = deps.get_adapter()
+    return {
+        "provider": "TinyFish",
+        "configured": bool(getattr(adapter, "configured", False)),
+        "search_available": bool(getattr(adapter, "configured", False)),
+        "fetch_available": bool(getattr(adapter, "configured", False)),
+        "note": "A configured provider can still fail due to rate limits, timeouts, or inaccessible sources.",
+    }
+
 
 # ------------------------------------------------------------- research results
 @router.get("/projects/{project_id}/similar-projects", response_model=list[schemas.SimilarProjectOut],
