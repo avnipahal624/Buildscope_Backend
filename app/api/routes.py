@@ -13,13 +13,19 @@ from app.stakeholders.identify import identify_stakeholders
 from app.stakeholders.pipeline import latest_run_id
 from app import deps
 from app.research.adapter import AdapterError
+from app.auth import current_user
+from app.models import User
 
-router = APIRouter(prefix="/api")
+def _bind_user(db: Session = Depends(get_db), user: User = Depends(current_user)):
+    db.info["user_id"] = user.id
+    return user
+
+router = APIRouter(prefix="/api", dependencies=[Depends(_bind_user)])
 
 
 def _project(db: Session, project_id: str) -> Project:
     p = db.get(Project, project_id)
-    if not p:
+    if not p or p.owner_id != db.info.get("user_id"):
         raise HTTPException(404, "project not found")
     return p
 
@@ -78,21 +84,23 @@ def search_hackathons(
 
 # ----------------------------------------------------------- Module 1 stub: projects
 @router.post("/projects", response_model=schemas.ProjectOut, status_code=201, tags=["projects (Module 1 stub)"])
-def create_project(body: schemas.ProjectCreate, db: Session = Depends(get_db)):
-    p = Project(**body.model_dump())
+def create_project(body: schemas.ProjectCreate, db: Session = Depends(get_db), user: User = Depends(current_user)):
+    p = Project(**body.model_dump(), owner_id=user.id)
     db.add(p)
     db.commit()
     return p
 
 
 @router.get("/projects", response_model=list[schemas.ProjectOut], tags=["projects (Module 1 stub)"])
-def list_projects(db: Session = Depends(get_db)):
-    return db.query(Project).order_by(Project.created_at.desc()).all()
+def list_projects(db: Session = Depends(get_db), user: User = Depends(current_user)):
+    return db.query(Project).filter(Project.owner_id == user.id).order_by(Project.created_at.desc()).all()
 
 
 @router.get("/projects/{project_id}", response_model=schemas.ProjectOut, tags=["projects (Module 1 stub)"])
-def get_project(project_id: str, db: Session = Depends(get_db)):
-    return _project(db, project_id)
+def get_project(project_id: str, db: Session = Depends(get_db), user: User = Depends(current_user)):
+    p = _project(db, project_id)
+    if p.owner_id != user.id: raise HTTPException(404, "project not found")
+    return p
 
 
 # ------------------------------------------------------------------------- jobs
