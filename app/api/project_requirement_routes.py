@@ -6,6 +6,7 @@ from sqlalchemy import select
 from app import db as database
 from app.models import Project, ProjectRequirement
 from app.auth import current_user
+from app.models import User
 
 router = APIRouter(tags=["project-requirements"], dependencies=[Depends(current_user)])
 
@@ -30,10 +31,16 @@ def _out(r: ProjectRequirement) -> dict:
     }
 
 
-@router.post("/projects/{project_id}/requirements")
-def add_project_requirement(project_id: str, body: ProjectRequirementIn, db=Depends(_session)):
-    if not db.get(Project, project_id):
+def _owned_project(db, project_id: str, user: User):
+    project = db.get(Project, project_id)
+    if not project or project.owner_id != user.id:
         raise HTTPException(404, "Project not found")
+    return project
+
+
+@router.post("/projects/{project_id}/requirements")
+def add_project_requirement(project_id: str, body: ProjectRequirementIn, db=Depends(_session), user: User = Depends(current_user)):
+    _owned_project(db, project_id, user)
     r = ProjectRequirement(project_id=project_id, **body.model_dump())
     db.add(r)
     db.commit()
@@ -42,8 +49,7 @@ def add_project_requirement(project_id: str, body: ProjectRequirementIn, db=Depe
 
 
 @router.get("/projects/{project_id}/requirements")
-def list_project_requirements(project_id: str, db=Depends(_session)):
-    if not db.get(Project, project_id):
-        raise HTTPException(404, "Project not found")
+def list_project_requirements(project_id: str, db=Depends(_session), user: User = Depends(current_user)):
+    _owned_project(db, project_id, user)
     rows = db.scalars(select(ProjectRequirement).where(ProjectRequirement.project_id == project_id))
     return [_out(r) for r in rows]
