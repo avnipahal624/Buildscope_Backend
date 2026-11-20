@@ -7,8 +7,9 @@ from app.chain import generate_requirement, get_chain, run_verification
 from app.deps import get_llm
 from app.llm.client import LLMError
 from app.models import Opportunity
+from app.auth import current_user
 
-router = APIRouter(tags=["proof-chain"])
+router = APIRouter(tags=["proof-chain"], dependencies=[Depends(current_user)])
 
 
 def _session():
