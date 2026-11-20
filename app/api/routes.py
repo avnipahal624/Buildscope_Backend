@@ -123,6 +123,13 @@ def get_job(job_id: str, db: Session = Depends(get_db)):
         raise HTTPException(404, "job not found")
     return run
 
+@router.get("/projects/{project_id}/research-runs", response_model=list[schemas.JobOut], tags=["research"])
+def research_runs(project_id: str, db: Session = Depends(get_db)):
+    """Return persisted research/stakeholder executions for the owned project."""
+    _project(db, project_id)
+    return (db.query(ResearchRun).filter_by(project_id=project_id)
+            .order_by(ResearchRun.created_at.desc()).all())
+
 
 # ------------------------------------------------------------- research results
 @router.get("/projects/{project_id}/similar-projects", response_model=list[schemas.SimilarProjectOut],
