@@ -4,8 +4,10 @@ import os
 import httpx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
+from app.auth import current_user
+from fastapi import Depends
 
-router = APIRouter(prefix="/api/prior-art", tags=["prior-art"])
+router = APIRouter(prefix="/api/prior-art", tags=["prior-art"], dependencies=[Depends(current_user)])
 
 class RepositorySearchRequest(BaseModel):
     query: str = Field(min_length=2, max_length=200)
