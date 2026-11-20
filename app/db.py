@@ -47,3 +47,9 @@ def init_db():
     from app import models  # noqa: F401  (registers tables)
 
     models.Base.metadata.create_all(get_engine())
+    # Backwards-compatible ownership migration for databases created before auth.
+    with get_engine().begin() as connection:
+        try:
+            connection.exec_driver_sql("ALTER TABLE projects ADD COLUMN owner_id VARCHAR(36)")
+        except Exception:
+            pass
