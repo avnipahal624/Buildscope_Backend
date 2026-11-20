@@ -33,6 +33,15 @@ def _project(db: Session, project_id: str) -> Project:
 
 def _start(db: Session, tasks: BackgroundTasks, project_id: str, kind: str) -> schemas.JobCreated:
     _project(db, project_id)
+    # Idempotency guard: a double-click or page retry must not create parallel
+    # provider jobs for the same project and stage.
+    active = (db.query(ResearchRun)
+              .filter(ResearchRun.project_id == project_id,
+                      ResearchRun.kind == kind,
+                      ResearchRun.status.in_(('pending', 'running')))
+              .order_by(ResearchRun.created_at.desc()).first())
+    if active:
+        return schemas.JobCreated(job_id=active.id, status=active.status)
     run = ResearchRun(project_id=project_id, kind=kind, status="pending")
     db.add(run)
     db.commit()
@@ -136,6 +145,24 @@ def get_job(job_id: str, db: Session = Depends(get_db), user: User = Depends(cur
             run.finished_at = datetime.now(timezone.utc)
             db.commit()
     return run
+
+
+@router.post("/jobs/{job_id}/retry", response_model=schemas.JobCreated, status_code=202,
+             tags=["jobs"])
+def retry_job(job_id: str, tasks: BackgroundTasks, db: Session = Depends(get_db),
+              user: User = Depends(current_user)):
+    """Retry a failed research/stakeholder job without exposing another user's job."""
+    run = db.get(ResearchRun, job_id)
+    project = db.get(Project, run.project_id) if run else None
+    if not run or not project or project.owner_id != user.id:
+        raise HTTPException(404, "job not found")
+    if run.status not in ("failed", "completed_with_errors", "cancelled"):
+        return schemas.JobCreated(job_id=run.id, status=run.status)
+    replacement = ResearchRun(project_id=run.project_id, kind=run.kind, status="pending")
+    db.add(replacement)
+    db.commit()
+    tasks.add_task(execute_run, replacement.id)
+    return schemas.JobCreated(job_id=replacement.id, status="pending")
 
 @router.get("/projects/{project_id}/research-runs", response_model=list[schemas.JobOut], tags=["research"])
 def research_runs(project_id: str, db: Session = Depends(get_db)):
