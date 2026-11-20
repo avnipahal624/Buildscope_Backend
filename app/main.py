@@ -1,5 +1,6 @@
 
 from contextlib import asynccontextmanager
+import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -40,6 +41,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://bulidscope-frontend.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        *([os.getenv("FRONTEND_ORIGIN")] if os.getenv("FRONTEND_ORIGIN") else []),
     ],
     allow_credentials=True,
     allow_methods=["*"],
