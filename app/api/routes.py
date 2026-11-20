@@ -1,7 +1,7 @@
 import os
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from app import schemas
@@ -124,6 +124,17 @@ def get_job(job_id: str, db: Session = Depends(get_db), user: User = Depends(cur
     legacy_test_project = bool(os.getenv("PYTEST_CURRENT_TEST")) and project is not None and project.owner_id is None
     if not run or not project or (project.owner_id != user.id and not legacy_test_project):
         raise HTTPException(404, "job not found")
+    # A process restart can strand a persisted run in `running`. Recover it
+    # lazily on read so the UI never waits forever for a dead worker.
+    if run.status in ("pending", "running") and run.started_at:
+        started = run.started_at
+        if started.tzinfo is None:
+            started = started.replace(tzinfo=timezone.utc)
+        if datetime.now(timezone.utc) - started > timedelta(minutes=10):
+            run.status = "failed"
+            run.error = "research worker timed out or stopped before completing"
+            run.finished_at = datetime.now(timezone.utc)
+            db.commit()
     return run
 
 @router.get("/projects/{project_id}/research-runs", response_model=list[schemas.JobOut], tags=["research"])
