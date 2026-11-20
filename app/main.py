@@ -41,6 +41,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://bulidscope-frontend.vercel.app",
+        "https://buildscope-frontend.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
