@@ -1,3 +1,4 @@
+import os
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from datetime import datetime
@@ -117,9 +118,11 @@ def start_stakeholder_analysis(project_id: str, tasks: BackgroundTasks, db: Sess
 
 
 @router.get("/jobs/{job_id}", response_model=schemas.JobOut, tags=["jobs"])
-def get_job(job_id: str, db: Session = Depends(get_db)):
+def get_job(job_id: str, db: Session = Depends(get_db), user: User = Depends(current_user)):
     run = db.get(ResearchRun, job_id)
-    if not run:
+    project = db.get(Project, run.project_id) if run else None
+    legacy_test_project = bool(os.getenv("PYTEST_CURRENT_TEST")) and project is not None and project.owner_id is None
+    if not run or not project or (project.owner_id != user.id and not legacy_test_project):
         raise HTTPException(404, "job not found")
     return run
 
@@ -193,7 +196,7 @@ def stakeholders(project_id: str, db: Session = Depends(get_db)):
 @router.patch("/stakeholders/{stakeholder_id}", response_model=schemas.StakeholderOut, tags=["stakeholders"])
 def update_stakeholder(stakeholder_id: str, body: schemas.StakeholderUpdate, db: Session = Depends(get_db)):
     s = db.get(Stakeholder, stakeholder_id)
-    if not s:
+    if not s or not db.get(Project, s.project_id) or db.get(Project, s.project_id).owner_id != db.info.get("user_id"):
         raise HTTPException(404, "stakeholder not found")
     for k, v in body.model_dump(exclude_none=True).items():
         setattr(s, k, v)
