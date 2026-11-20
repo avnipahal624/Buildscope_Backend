@@ -8,6 +8,7 @@ from app.api.routes import router
 from app.api.chain_routes import router as chain_router
 from app.api.project_requirement_routes import router as project_req_router
 from app.api.prior_art_routes import router as prior_art_router
+from app.api.auth_routes import router as auth_router
 from app import db as database
 from app.db import init_db
 from app.models import ResearchRun
@@ -50,6 +51,7 @@ app.include_router(router)
 app.include_router(chain_router)
 app.include_router(project_req_router)
 app.include_router(prior_art_router)
+app.include_router(auth_router)
 
 
 @app.get("/health", tags=["meta"])
